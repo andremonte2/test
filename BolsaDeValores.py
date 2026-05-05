@@ -1,16 +1,12 @@
 import yfinance as yf
 import pandas as pd
 import streamlit as st
-from datetime import datetime
+
 
 st.header("Analisando empresas")
-ticker = st.text_input("Ticker Code")
+st.text_input("Ticker Code",key = "tickercode")
 
-if ticker:
-    data = yf.Ticker(ticker)
-    st.write(data.info)
-else:
-    st.warning("Digite um ticker válido")
+ticker = st.session_state.tickercode
 
 data = yf.Ticker(ticker)
 
