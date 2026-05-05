@@ -7,15 +7,10 @@ st.header("Analisando empresas")
 ticker = st.text_input("Ticker Code")
 
 data = yf.Ticker(ticker)
-title = data.news["content"]["title"]
-url = data.news["content"]["canonicalUrl"]["url"]
-title = pd.DataFrame(data.news["content"]["title"])
-url = pd.DataFrame(url)
-
 
 data_news = pd.DataFrame(data.news)
 data_news2 = data_news["content"]
-st.dataframe(title)
+#st.dataframe("content")
 
 st.subheader(f"Ultimas noticias da {ticker}:")
 
