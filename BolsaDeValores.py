@@ -6,6 +6,12 @@ from datetime import datetime
 st.header("Analisando empresas")
 ticker = st.text_input("Ticker Code")
 
+if ticker:
+    data = yf.Ticker(ticker)
+    st.write(data.info)
+else:
+    st.warning("Digite um ticker válido")
+
 data = yf.Ticker(ticker)
 
 data_news = pd.DataFrame(data.news)
