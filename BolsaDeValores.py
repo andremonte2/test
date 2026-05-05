@@ -4,9 +4,7 @@ import streamlit as st
 from datetime import datetime
 
 st.header("Analisando empresas")
-st.text_input("Ticker Code",key = "tickercode")
-
-ticker = st.session_state.tickercode
+ticker = st.text_input("Ticker Code")
 
 data = yf.Ticker(ticker)
 title = data.news["content"]["title"]
